@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>SolarPro Light — Taa ya Jua yenye Powerbank | 100,000 TSH</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{--bg:#060606;--bg2:#0d0d0d;--bg3:#141414;--gold:#D4A017;--gl:#F5D060;--gd:#8B6914;--cream:#FFF8E7;--red:#C0392B;--green:#27AE60;--urgent:#FF3B30;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--cream);font-family:'Outfit',sans-serif;overflow-x:hidden;-webkit-text-size-adjust:100%;}
+::selection{background:var(--gold);color:#0A0A0A;}
+.container{max-width:1100px;margin:0 auto;padding:0 1rem;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(6,6,6,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,160,23,.1);padding:.6rem 0;transition:all .3s ease;}
+nav .nav-in{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 1rem;}
+nav .logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--gl);}
+nav .logo span{color:var(--cream);font-weight:400;font-size:.75rem;margin-left:.2rem;}
+nav .nav-cta{display:flex;align-items:center;gap:.6rem;}
+nav .nav-price{font-weight:800;font-size:.85rem;color:var(--gl);}
+nav .nav-price s{color:rgba(255,248,231,.3);font-size:.7rem;font-weight:400;margin-left:.2rem;}
+nav .nav-wa{display:inline-flex;align-items:center;gap:.3rem;background:var(--green);color:#fff;border:none;border-radius:30px;padding:.35rem .8rem;font-family:'Outfit',sans-serif;font-weight:700;font-size:.7rem;cursor:pointer;text-decoration:none;transition:all .3s ease;}
+nav .nav-wa:hover{background:#219a52;transform:scale(1.05);}
+nav .nav-wa i{font-size:.75rem;}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;overflow:hidden;padding:5rem 0 3rem;}
+/* GIF Styles - Same as video but for Image */
+.hero-video{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0.6;}
+
+.hero canvas{position:absolute;inset:0;z-index:2;pointer-events:none;}
+.hero .vig{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(6,6,6,.9) 100%);}
+.hero .content{position:relative;z-index:10;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.hero .text{flex:1;min-width:280px;}
+.hero .badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.3);border-radius:30px;padding:.25rem .7rem;font-size:.68rem;font-weight:600;color:var(--green);margin-bottom:1rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:.8rem;}
+.hero h1 .g{color:var(--gl);}
+.hero .desc{font-size:clamp(.82rem,1.5vw,1rem);font-weight:300;color:rgba(255,248,231,.55);line-height:1.7;margin-bottom:1.2rem;max-width:480px;}
+.hero .desc strong{color:var(--gl);font-weight:600;}
+.hero .price-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.hero .price-box{background:linear-gradient(135deg,rgba(212,160,23,.12),rgba(212,160,23,.04));border:2px solid rgba(212,160,23,.25);border-radius:14px;padding:.6rem 1.2rem;}
+.hero .price-box .old{font-size:.8rem;color:rgba(255,248,231,.3);text-decoration:line-through;}
+.hero .price-box .new{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--gl);line-height:1.1;}
+.hero .price-box .save{font-size:.65rem;color:var(--green);font-weight:700;margin-top:.1rem;}
+.hero .free-del{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--green);font-weight:600;}
+.hero .btns{display:flex;gap:.6rem;flex-wrap:wrap;}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(.85rem,1.2vw,.95rem);padding:.85rem 1.6rem;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 25px rgba(39,174,96,.3);}
+.btn-wa:hover{box-shadow:0 4px 40px rgba(39,174,96,.5);transform:translateY(-2px);}
+.btn-order{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,var(--gold),var(--gd));color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(.85rem,1.2vw,.95rem);padding:.85rem 1.6rem;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 25px rgba(212,160,23,.3);}
+.btn-order:hover{box-shadow:0 4px 40px rgba(212,160,23,.5);transform:translateY(-2px);}
+.hero .img-col{flex:1;min-width:240px;display:flex;justify-content:center;}
+.hero .img-wrap{position:relative;}
+.hero .img-wrap img{width:100%;max-width:320px;height:auto;border-radius:16px;border:2px solid rgba(212,160,23,.2);box-shadow:0 0 60px rgba(212,160,23,.1),0 20px 60px rgba(0,0,0,.5);}
+.hero .img-wrap .pulse{position:absolute;top:-6px;right:-6px;background:var(--urgent);color:#fff;font-size:.6rem;font-weight:700;padding:.25rem .6rem;border-radius:20px;animation:bp 2s ease-in-out infinite;}
+@keyframes bp{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+
+/* STOCK BANNER */
+.stock-banner{background:linear-gradient(90deg,rgba(255,59,48,.15),rgba(255,59,48,.05),rgba(255,59,48,.15));border-top:1px solid rgba(255,59,48,.15);border-bottom:1px solid rgba(255,59,48,.15);padding:.6rem;text-align:center;}
+.stock-banner span{font-weight:700;color:var(--urgent);font-size:.8rem;letter-spacing:.05em;}
+.stock-banner .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--urgent);margin-right:.3rem;animation:bl 1s infinite;vertical-align:middle;}
+@keyframes bl{0%,100%{opacity:1;}50%{opacity:.2;}}
+
+/* SECTION COMMON */
+section{padding:clamp(2.5rem,5vw,4rem) 0;}
+.section-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:700;color:var(--gl);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.8rem;}
+.section-tag::before,.section-tag::after{content:'';width:18px;height:1px;background:rgba(212,160,23,.3);}
+section h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:.8rem;}
+section p.sub{font-size:clamp(.8rem,1.3vw,.95rem);color:rgba(255,248,231,.45);line-height:1.7;max-width:580px;margin-bottom:1.8rem;}
+
+/* PROBLEM */
+.problem{background:var(--bg2);}
+.problem .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;}
+.pain-card{background:rgba(192,57,43,.06);border:1px solid rgba(192,57,43,.15);border-radius:14px;padding:1.2rem;text-align:center;transition:all .3s ease;}
+.pain-card:hover{border-color:rgba(192,57,43,.3);transform:translateY(-3px);}
+.pain-card i{font-size:1.8rem;color:#E74C3C;margin-bottom:.6rem;display:block;}
+.pain-card h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem;}
+.pain-card p{font-size:.78rem;color:rgba(255,248,231,.4);line-height:1.5;}
+.problem-img-wrap{margin-top:2rem;border-radius:16px;overflow:hidden;border:2px solid rgba(192,57,43,.15);}
+.problem-img-wrap img{width:100%;height:auto;display:block;}
+
+/* PRODUCT */
+.product{background:var(--bg);}
+.product .prod-layout{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.product .prod-img{flex:1;min-width:240px;}
+.product .prod-img img{width:100%;max-width:360px;border-radius:16px;border:2px solid rgba(212,160,23,.15);box-shadow:0 0 50px rgba(212,160,23,.08),0 20px 60px rgba(0,0,0,.5);}
+.product .prod-info{flex:1;min-width:260px;}
+.prod-badge-row{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap;}
+.prod-badge{background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.2);border-radius:30px;padding:.25rem .7rem;font-size:.68rem;color:var(--gl);font-weight:600;}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1rem;}
+.spec{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:rgba(255,248,231,.5);}
+.spec i{color:var(--gl);font-size:.7rem;width:14px;text-align:center;}
+
+/* BENEFITS */
+.benefits{background:var(--bg2);}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.ben-card{background:rgba(212,160,23,.04);border:1px solid rgba(212,160,23,.1);border-radius:14px;padding:1.2rem;transition:all .3s ease;position:relative;overflow:hidden;}
+.ben-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gd));opacity:0;transition:opacity .3s ease;}
+.ben-card:hover{border-color:rgba(212,160,23,.25);transform:translateY(-3px);}
+.ben-card:hover::before{opacity:1;}
+.ben-card .num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:rgba(212,160,23,.15);margin-bottom:.2rem;}
+.ben-card i{font-size:1.3rem;color:var(--gl);margin-bottom:.5rem;display:block;}
+.ben-card h3{font-size:.92rem;font-weight:700;margin-bottom:.3rem;}
+.ben-card p{font-size:.78rem;color:rgba(255,248,231,.4);line-height:1.6;}
+
+/* FEATURES DETAIL (ZIG ZAG) */
+.detail-section{background:var(--bg3);padding: 4rem 5%; display:flex;align-items:center;gap:3rem;flex-wrap:wrap;}
+.detail-img-box{flex:1;min-width:300px;}
+.detail-img-box img{width:100%;border-radius:16px;border:2px solid rgba(212,160,23,.2);box-shadow:0 10px 40px rgba(0,0,0,.5);}
+.detail-text-box{flex:1;min-width:300px;}
+.detail-text-box h3{color:var(--gl);font-size:.9rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.5rem;}
+.detail-text-box h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;margin-bottom:1rem;line-height:1.2;}
+
+/* HOW TO USE */
+.howto{background:var(--bg);}
+.steps{display:flex;flex-direction:column;gap:.8rem;max-width:680px;}
+.step{display:flex;align-items:flex-start;gap:1rem;background:var(--bg3);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:1rem 1.2rem;transition:all .3s ease;}
+.step:hover{border-color:rgba(212,160,23,.15);}
+.step-num{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gd));color:#0A0A0A;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.step h3{font-size:.92rem;font-weight:700;margin-bottom:.2rem;}
+.step p{font-size:.82rem;color:rgba(255,248,231,.45);line-height:1.6;}
+.step p strong{color:var(--gl);font-weight:700;}
+
+/* FAQ */
+.faq{background:var(--bg2);}
+.faq-list{max-width:680px;display:flex;flex-direction:column;gap:.5rem;}
+.faq-item{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:border-color .3s ease;}
+.faq-item.open{border-color:rgba(212,160,23,.2);}
+.faq-q{padding:.9rem 1rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:.88rem;transition:color .3s ease;}
+.faq-q:hover{color:var(--gl);}
+.faq-q i{font-size:.65rem;transition:transform .3s ease;color:rgba(255,248,231,.3);}
+.faq-item.open .faq-q i{transform:rotate(180deg);color:var(--gl);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-a-inner{padding:0 1rem .9rem;font-size:.82rem;color:rgba(255,248,231,.45);line-height:1.7;}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* ORDER FORM */
+.order-section{background:linear-gradient(180deg,var(--bg),var(--bg2));position:relative;}
+.order-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gd),var(--gl),var(--gd));}
+.order-wrap{display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;}
+.order-form{flex:1;min-width:300px;background:var(--bg3);border:1px solid rgba(212,160,23,.15);border-radius:18px;padding:1.5rem;}
+.order-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:.2rem;}
+.order-form .of-sub{font-size:.82rem;color:rgba(255,248,231,.4);margin-bottom:1.2rem;}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:.72rem;font-weight:600;color:rgba(255,248,231,.6);margin-bottom:.3rem;letter-spacing:.05em;text-transform:uppercase;}
+.form-group label .req{color:var(--urgent);}
+.form-group input,.form-group select{width:100%;padding:.7rem .9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--cream);font-family:'Outfit',sans-serif;font-size:.9rem;transition:all .3s ease;outline:none;}
+.form-group input::placeholder{color:rgba(255,248,231,.2);}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,160,23,.1);}
+.form-group select{cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F5D060' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;}
+.form-group select option{background:#1a1a1a;color:var(--cream);}
+.form-row{display:flex;gap:.7rem;}
+.form-row .form-group{flex:1;}
+.form-error{font-size:.68rem;color:var(--urgent);margin-top:.2rem;display:none;}
+.form-error.show{display:block;}
+
+/* PACKAGE SELECTOR */
+.pkg-label{font-size:.72rem;font-weight:600;color:rgba(255,248,231,.6);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.6rem;}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem;}
+.pkg-card{position:relative;background:rgba(255,255,255,.03);border:2px solid rgba(255,255,255,.08);border-radius:12px;padding:.7rem .4rem;text-align:center;cursor:pointer;transition:all .3s ease;overflow:hidden;}
+.pkg-card:hover{border-color:rgba(212,160,23,.2);background:rgba(212,160,23,.04);}
+.pkg-card.active{border-color:var(--gold);background:rgba(212,160,23,.08);box-shadow:0 0 20px rgba(212,160,23,.1);}
+.pkg-card .pkg-qty{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--cream);line-height:1;}
+.pkg-card.active .pkg-qty{color:var(--gl);}
+.pkg-card .pkg-unit{font-size:.58rem;color:rgba(255,248,231,.35);margin-top:.1rem;}
+.pkg-card .pkg-price{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gl);margin-top:.3rem;}
+.pkg-card .pkg-old{font-size:.65rem;color:rgba(255,248,231,.25);text-decoration:line-through;margin-top:.1rem;}
+.pkg-card .pkg-save{display:inline-block;background:var(--green);color:#fff;font-size:.55rem;font-weight:700;padding:.1rem .4rem;border-radius:4px;margin-top:.3rem;}
+/* Popular badge */
+.pkg-card.popular::before{content:'OFFER YA KUPIGA';position:absolute;top:0;left:0;right:0;background:linear-gradient(90deg,var(--gold),var(--gd));color:#0A0A0A;font-size:.5rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.15rem 0;text-align:center;}
+
+.order-summary{background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.12);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.2rem;}
+.os-row{display:flex;justify-content:space-between;font-size:.82rem;padding:.25rem 0;}
+.os-row.total{border-top:1px solid rgba(212,160,23,.15);margin-top:.3rem;padding-top:.5rem;}
+.os-row.total .os-label{font-weight:700;font-size:.92rem;}
+.os-row.total .os-val{font-family:'Playfair Display',serif;font-weight:900;font-size:1.2rem;color:var(--gl);}
+.os-label{color:rgba(255,248,231,.5);}
+.os-val{font-weight:600;}
+.os-del{color:var(--green);font-weight:700;}
+.os-save{color:var(--green);font-weight:700;font-size:.78rem;}
+.submit-btn{width:100%;padding:.9rem;border:none;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;transition:all .3s ease;}
+.submit-btn.wa{background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;box-shadow:0 4px 25px rgba(39,174,96,.3);}
+.submit-btn.wa:hover{box-shadow:0 4px 40px rgba(39,174,96,.5);transform:translateY(-2px);}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+
+/* STICKY CTA BAR */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:99998;background:rgba(6,6,6,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:2px solid rgba(39,174,96,.3);padding:.7rem 1rem;display:flex;align-items:center;justify-content:center;gap:.8rem;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none;}
+.sticky-cta.visible{transform:translateY(0);pointer-events:auto;}
+.sticky-cta-inner{display:flex;align-items:center;justify-content:center;gap:.8rem;max-width:700px;width:100%;}
+.sticky-cta-price{display:flex;flex-direction:column;align-items:flex-end;min-width:0;}
+.sticky-cta-price .scp-old{font-size:.65rem;color:rgba(255,248,231,.25);text-decoration:line-through;}
+.sticky-cta-price .scp-new{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--gl);line-height:1.1;}
+.sticky-cta-price .scp-del{font-size:.6rem;color:var(--green);font-weight:600;}
+.sticky-cta-btn{flex:1;max-width:400px;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,var(--green),#1E8449);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;padding:.75rem 1.2rem;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:all .3s ease;box-shadow:0 4px 25px rgba(39,174,96,.35);white-space:nowrap;}
+.sticky-cta-btn:hover{box-shadow:0 4px 40px rgba(39,174,96,.55);transform:translateY(-2px);}
+.sticky-cta .pulse-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--urgent);animation:bl 1s infinite;margin-right:.3rem;vertical-align:middle;}
+.form-disclaimer{font-size:.65rem;color:rgba(255,248,231,.2);margin-top:.8rem;line-height:1.5;text-align:center;}
+
+/* Order sidebar */
+.order-side{flex:.8;min-width:260px;position:sticky;top:5rem;}
+.order-side img{width:100%;border-radius:16px;border:2px solid rgba(212,160,23,.15);box-shadow:0 0 40px rgba(212,160,23,.08);margin-bottom:1rem;}
+.side-phones{display:flex;flex-direction:column;gap:.5rem;}
+.side-phone{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:.6rem .9rem;text-decoration:none;color:var(--cream);transition:all .3s ease;}
+.side-phone:hover{border-color:rgba(212,160,23,.2);background:rgba(212,160,23,.05);}
+.side-phone i{font-size:1rem;color:var(--gl);}
+.side-phone .sp-num{font-weight:700;font-size:.85rem;}
+.side-phone .sp-label{font-size:.62rem;color:rgba(255,248,231,.35);}
+.side-trust{display:flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.7rem;color:rgba(255,248,231,.3);}
+.side-trust i{color:var(--green);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,.05);padding:2.5rem 0;text-align:center;}
+footer .f-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--gl);margin-bottom:.4rem;}
+footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:480px;margin:0 auto;}
+
+/* FLOATING BUTTON */
+.wa-float-wrap{position:fixed;bottom:1.2rem;right:1.2rem;z-index:99999;pointer-events:none;opacity:1;transition:opacity .4s ease,transform .4s ease;}
+.wa-float-wrap.hidden-float{opacity:0;transform:translateY(30px) scale(.8);pointer-events:none!important;}
+.wa-float-wrap.hidden-float *{pointer-events:none!important;}
+.wa-float-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;}
+.wa-float-ring.r1{width:68px;height:68px;border:2px solid rgba(39,174,96,.35);animation:floatRing1 2.5s ease-out infinite;}
+.wa-float-ring.r2{width:68px;height:68px;border:2px solid rgba(39,174,96,.25);animation:floatRing2 2.5s ease-out infinite .8s;}
+.wa-float-ring.r3{width:68px;height:68px;border:2px solid rgba(39,174,96,.15);animation:floatRing2 2.5s ease-out infinite 1.6s;}
+@keyframes floatRing1{0%{transform:translate(-50%,-50%) scale(1);opacity:1;}100%{transform:translate(-50%,-50%) scale(2.2);opacity:0;}}
+@keyframes floatRing2{0%{transform:translate(-50%,-50%) scale(1);opacity:1;}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0;}}
+.wa-float{position:relative;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#2ECC71,#1E8449);color:#fff;font-size:1.7rem;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;pointer-events:auto;animation:floatBounce 3s ease-in-out infinite,floatBreath 4s ease-in-out infinite;box-shadow:0 8px 35px rgba(39,174,96,.5),0 0 0 0 rgba(39,174,96,.4);transition:box-shadow .3s ease;overflow:visible;}
+.wa-float:hover{box-shadow:0 8px 50px rgba(39,174,96,.7),0 0 0 8px rgba(39,174,96,.1)!important;animation-play-state:paused;transform:scale(1.15)!important;}
+@keyframes floatBounce{0%,100%{transform:translateY(0);}15%{transform:translateY(-8px);}30%{transform:translateY(-3px);}45%{transform:translateY(-10px);}60%{transform:translateY(-4px);}75%{transform:translateY(-7px);}90%{transform:translateY(-2px);}}
+@keyframes floatBreath{0%,100%{box-shadow:0 8px 35px rgba(39,174,96,.5),0 0 0 0 rgba(39,174,96,.4);}50%{box-shadow:0 8px 35px rgba(39,174,96,.5),0 0 0 16px rgba(39,174,96,0);}}
+.wa-float i{animation:floatIconWiggle 2s ease-in-out infinite;position:relative;z-index:2;}
+@keyframes floatIconWiggle{0%,100%{transform:rotate(0deg);}10%{transform:rotate(-8deg);}20%{transform:rotate(8deg);}30%{transform:rotate(-5deg);}40%{transform:rotate(5deg);}50%{transform:rotate(0deg);}}
+.wa-float-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:var(--urgent);color:#fff;font-family:'Outfit',sans-serif;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:3;animation:badgePop .4s cubic-bezier(.175,.885,.32,1.275) .5s both,badgePulse 2s ease-in-out 1s infinite;border:2px solid var(--bg);pointer-events:none;}
+@keyframes badgePop{0%{transform:scale(0);}100%{transform:scale(1);}}
+@keyframes badgePulse{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
+.wa-float-label{position:absolute;right:76px;top:50%;transform:translateY(-50%) translateX(10px);background:linear-gradient(135deg,#2ECC71,#1E8449);color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:.75rem;padding:.55rem 1rem;border-radius:10px;white-space:nowrap;box-shadow:0 6px 25px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.175,.885,.32,1.275);z-index:4;}
+.wa-float-label::after{content:'';position:absolute;right:-7px;top:50%;transform:translateY(-50%);border:7px solid transparent;border-left-color:#1E8449;}
+.wa-float-label .label-line1{font-size:.82rem;font-weight:800;display:block;}
+.wa-float-label .label-line2{font-size:.62rem;font-weight:400;opacity:.85;display:block;margin-top:.1rem;}
+.wa-float-wrap .wa-float-label.show-label{opacity:1;transform:translateY(-50%) translateX(0);}
+.wa-float:hover ~ .wa-float-label,.wa-float-wrap:hover .wa-float-label{opacity:1!important;transform:translateY(-50%) translateX(0)!important;}
+
+/* TOAST */
+.toast{position:fixed;top:4.5rem;left:50%;transform:translateX(-50%) translateY(-20px);z-index:100000;background:rgba(30,30,30,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);color:var(--cream);padding:.6rem 1.2rem;border-radius:10px;font-weight:600;font-size:.82rem;opacity:0;transition:all .4s ease;pointer-events:none;display:flex;align-items:center;gap:.4rem;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.5);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.ok{border-color:rgba(39,174,96,.3);}.toast.ok i{color:var(--green);}
+.toast.err{border-color:rgba(192,57,43,.3);}.toast.err i{color:var(--red);}
+
+@media(max-width:480px){
+  .container{padding:0 .8rem;}
+  nav .nav-in{padding:0 .8rem;}nav .logo{font-size:.95rem;}nav .logo span{font-size:.65rem;}nav .nav-wa{padding:.3rem .6rem;font-size:.62rem;}nav .nav-wa span{display:none;}
+  .hero{padding:4.5rem 0 2.5rem;}.hero h1{font-size:1.8rem;}.hero .desc{font-size:.82rem;}.hero .price-box{padding:.5rem .9rem;}.hero .price-box .new{font-size:1.5rem;}.hero .img-wrap img{max-width:220px;}.hero .btns{flex-direction:column;width:100%;}.hero .btns a{width:100%;justify-content:center;}.hero .price-row{flex-direction:column;align-items:flex-start;gap:.6rem;}
+  .pain-grid{grid-template-columns:1fr 1fr;gap:.7rem;}.pain-card{padding:.9rem .6rem;}.pain-card i{font-size:1.4rem;}.pain-card h3{font-size:.8rem;}.pain-card p{font-size:.7rem;}
+  .specs{grid-template-columns:1fr;}.benefits-grid{grid-template-columns:1fr;}
+  .detail-section{flex-direction:column;gap:1.5rem;}
+  .step{padding:.8rem 1rem;}.step-num{width:36px;height:36px;font-size:1rem;}
+  .order-form{padding:1.2rem;}.form-row{flex-direction:column;gap:1rem;}
+  .pkg-grid{grid-template-columns:1fr;gap:.4rem;}
+  .pkg-card{padding:.6rem .3rem;}.pkg-card .pkg-qty{font-size:1.1rem;}.pkg-card .pkg-price{font-size:.85rem;}.pkg-card .pkg-old{font-size:.6rem;}
+  .wa-float{width:56px;height:56px;font-size:1.4rem;}.wa-float-ring.r1,.wa-float-ring.r2,.wa-float-ring.r3{width:60px;height:60px;}.wa-float-badge{width:20px;height:20px;font-size:.55rem;top:-3px;right:-3px;}.wa-float-label{display:none;}.wa-float-wrap{bottom:1rem;right:1rem;}
+  .stock-banner span{font-size:.72rem;}
+  .sticky-cta{padding:.5rem .8rem;gap:.5rem;}
+  .sticky-cta-price .scp-new{font-size:.95rem;}
+  .sticky-cta-btn{font-size:.78rem;padding:.65rem 1rem;}
+  .wa-float-wrap{bottom:4.5rem;}
+}
+@media(min-width:481px) and (max-width:768px){
+  .hero .content{flex-direction:column;text-align:center;}.hero .text{min-width:0;}.hero .desc{margin:0 auto 1.2rem;}.hero .price-row{justify-content:center;}.hero .btns{justify-content:center;}.hero .img-col{min-width:0;}
+  .product .prod-layout{flex-direction:column;}.product .prod-img{min-width:0;}.product .prod-img img{max-width:280px;}
+  .order-wrap{flex-direction:column-reverse;}.order-side{position:static;min-width:0;}
+  nav .nav-price{display:none;}section{padding:3rem 0;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <div class="logo">SOLAR<span>PRO</span></div>
+    <div class="nav-cta">
+      <div class="nav-price">100,000 TSH <s>120,000</s></div>
+      <a href="https://wa.me/255769799110?text=Nimeona%20ad%20ya%20Taa%20ya%20Solar%20naomba%20kuagiza" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> <span>Piga Simu</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <!-- GIF AUTOPLAY -->
+  <!-- BADILI SRC="..." NA KUWEKA LINK YA GIF YAKO HAPA -->
+  <img src="https://i.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif" class="hero-video" alt="Camping Fire Background">
+  
+  <canvas id="heroCv"></canvas>
+  <div class="vig"></div>
+  <div class="content container">
+    <div class="text">
+      <div class="badge"><i class="fas fa-sun"></i> Nishati Bure ya Jua — Imara na ya Kudumu</div>
+      <h1><span class="g">SolarPro X</span><br>Taa ya Jua yenye Powerbank</h1>
+      <p class="desc">Taa ya kipekee ya <strong>2500W equivalent</strong> yenye LED 528. Inachaji kupitia jua, ni water proof, haiaribiki khata ikinyeshwewa na Mvua, na inatunza moto moka masaa 8 hadi 10, inacharge simu zako. Suluhisho la shida za umeme mara moja.</p>
+      <div class="price-row">
+        <div class="price-box">
+          <div class="old">Bei ya Kawaida: 120,000 TSH</div>
+          <div class="new">100,000 TSH</div>
+          <div class="save">Unaokoa 20,000 TSH</div>
+        </div>
+        <div class="free-del"><i class="fas fa-truck-fast"></i><div><div>Delivery BURE</div><div class="fd-sm">Popote ndani ya Tanzania</div></div></div>
+      </div>
+      <div class="btns">
+        <a href="#order" class="btn-order" id="heroOrderBtn"><i class="fas fa-shopping-bag"></i> Weka Order Sasa</a>
+        <a href="https://wa.me/255769799110?text=Nimeona%20ad%20ya%20Taa%20ya%20Solar%20naomba%20kuagiza" class="btn-wa" id="heroWaBtn" target="_blank"><i class="fab fa-whatsapp"></i> Piga Simu</a>
+      </div>
+    </div>
+    <div class="img-col">
+      <div class="img-wrap">
+        <img src="https://z-cdn-media.chatglm.cn/files/807e4280-bbbf-47c2-a8b8-dce160786a6a.jpg?auth_key=1878148343-ecaf9f4b7cfc41389c130c34e3b7a501-0-e95b190499d657de92267f284d1c51e3" alt="Taa ya Solar ikionyesha nyumba na mwanga">
+        <div class="pulse">ZIPO CHACHE!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STOCK BANNER -->
+<div class="stock-banner"><span class="dot"></span><span><i class="fas fa-exclamation-triangle" style="margin-right:.3rem"></i> OFA YA MUDA — TAA HIZI ZINAHITAJIKA SANA KWA AJILI YA UKAME WA UMUME!</span></div>
+
+<!-- PROBLEM -->
+<section class="problem" id="maumivu">
+  <div class="container">
+    <div class="section-tag">Tatua</div>
+    <h2>Unasumbuliwa na Giza na Umeme Ukatika marakwamara?</h2>
+    <p class="sub">Usikae gizani. Taa ya SolarPro X ni suluhisho lako kamili — inatunza umeme kwa muda mrefu zaidi ya TANESCO na inakuwepo wakati wote.</p>
+    <div class="pain-grid">
+      <div class="pain-card"><i class="fas fa-bolt"></i><h3>shida ya umeme kwisha</h3><p>Inatunza Moto kwa msaa mengi zaidi mwanga wake ni mkali zaidi.</p></div>
+      <div class="pain-card"><i class="fas fa-money-bill-wave"></i><h3>Taa zako zinakula Umeme</h3><p> Unit za TANESCO zinaongezeka? Pata nishati bure.</p></div>
+      <div class="pain-card"><i class="fas fa-battery-empty"></i><h3>Simu yako inakata charge</h3><p>Chaji inaisha wakati wa dharura? Taa hii ni Powerbank pia.</p></div>
+      <div class="pain-card"><i class="fas fa-cloud-showers-heavy"></i><h3>Mvua na Uvamizi</h3><p>Taa nyingi hufa wakati wa mvua? Hii ni IP66 Waterproof.</p></div>
+    </div>
+    <div class="problem-img-wrap">
+      <img src="https://z-cdn-media.chatglm.cn/files/e8a34916-c555-4ac3-a807-3161ab145aba.jpg?auth_key=1878148343-6b58df2f1c8f48e28113d9df1ebdf8ec-0-450abcafa040d2d31433b2fc33dfcbfc" alt="Mtu akishika taa ya mkono">
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product" id="bidhaa">
+  <div class="container">
+    <div class="section-tag">Bidhaa</div>
+    <h2>SolarPro X Multi-Function Light</h2>
+    <div class="prod-layout">
+      <div class="prod-img">
+        <img src="https://z-cdn-media.chatglm.cn/files/3f2f469e-b313-4470-abc8-c0d2330edc3d.png?auth_key=1878152911-6c5c3fe041884404b0e14eb549ca31d4-0-31d4e4f73a424d35d9b91f247e71318a" alt="SolarPro Detailed Data">
+      </div>
+      <div class="prod-info">
+        <div class="prod-badge-row">
+          <span class="prod-badge">IP66 Waterproof</span>
+          <span class="prod-badge">528 LED</span>
+          <span class="prod-badge">2500W Equiv</span>
+          <span class="prod-badge">Powerbank</span>
+          <span class="prod-badge">Solar Panel</span>
+        </div>
+        <p class="sub" style="margin-bottom:.8rem;">Taa yenye teknolojia ya hali ya juu. Inakuja na paneli ya jua inayoweza kuongezeka, betri kubwa, na muundo uliodhibitiwa dhidi ya maji na vumbi.</p>
+        <div class="specs">
+          <div class="spec"><i class="fas fa-check"></i> Water Proof IP66</div>
+          <div class="spec"><i class="fas fa-check"></i> Mwangaza wa Sqm 500</div>
+          <div class="spec"><i class="fas fa-check"></i> Inacharge Simu (5V/2A)</div>
+          <div class="spec"><i class="fas fa-check"></i> Sumaku 2 nguzu</div>
+          <div class="spec"><i class="fas fa-check"></i> Stand inayozunguka 180°</div>
+          <div class="spec"><i class="fas fa-check"></i> Mode 5 za Mwanga</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WATERPROOF FEATURE -->
+<section class="detail-section">
+  <div class="detail-img-box">
+    <img src="https://z-cdn-media.chatglm.cn/files/2181445d-0a8d-443c-bf0d-d4744a57c203.png?auth_key=1878152911-62de64bc404b421f81614d63f3b76cdc-0-e23f5974ae794d6d8fc1c9432aefe1ce" alt="IP66 Waterproof Rain">
+  </div>
+  <div class="detail-text-box">
+    <h3><i class="fas fa-tint" style="margin-right:10px;"></i> WATERPROOF</h3>
+    <h2>IP66 - Imara Dhidi ya Mvua na Vumbi</h2>
+    <p>Muundo wake umefungwa kabisa (Fully sealed design). Hii inafanya iwe salama kutumia nje hata wakati wa mvua kubwa na vumbi bila wasiwasi.</p>
+  </div>
+</section>
+
+<!-- POWERBANK FEATURE -->
+<section class="detail-section" style="background:var(--bg);">
+  <div class="detail-text-box">
+    <h3><i class="fas fa-mobile-alt" style="margin-right:10px;"></i> POWER OUTPUT</h3>
+    <h2>Inaweza Kucharge Simu Yako</h2>
+    <p>Umeishia chaji? Taa hii ina uwezo wa ku-output umeme na kucharge simu yako wakati wa dharura. Unaweza kuwasha simu yako na kutumia taa hii kama charger.</p>
+  </div>
+  <div class="detail-img-box">
+    <img src="https://z-cdn-media.chatglm.cn/files/f74f87e8-1572-4ade-86d1-0e650a739831.png?auth_key=1878152911-a196e7e1560f4865b5c4bed6e40d65c6-0-d338bdfefa2d37360c1e0a3b63baf3fb" alt="Charging Phone Power Output">
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="manufaa">
+  <div class="container">
+    <div class="section-tag">Manufaa</div>
+    <h2>Kwa Nini SolarPro X?</h2>
+    <p class="sub">Sio taa ya kawaida — hii ni kifaa cha kuokoa maisha na pesa.</p>
+    <div class="benefits-grid">
+      <div class="ben-card"><div class="num">01</div><i class="fas fa-sun"></i><h3>Nishati ya Jua</h3><p>Weka nje mchana, utumie usiku. Hakuna gharama za umeme.</p></div>
+      <div class="ben-card"><div class="num">02</div><i class="fas fa-mobile-alt"></i><h3>Inaokoa simu</h3><p>Ina USB port. Unaweza kucharge simu yako wakati wa dharura.</p></div>
+      <div class="ben-card"><div class="num">03</div><i class="fas fa-shield-alt"></i><h3>Imara na Salama</h3><p>Imetengenezwa kwa plastiki ngumu yenye kinga dhidi ya ajali.</p></div>
+      <div class="ben-card"><div class="num">04</div><i class="fas fa-tint"></i><h3>Haidhuriki kwenye Maji</h3><p>IP66 inamaanisha haingii maji. Salama kwa matumizi ya nje.</p></div>
+      <div class="ben-card"><div class="num">05</div><i class="fas fa-bolt"></i><h3>Mwanganga Mkali</h3><p>LED 528 zinatoa mwanga mweupe mkali unaofika mbali.</p></div>
+      <div class="ben-card"><div class="num">06</div><i class="fas fa-shipping-fast"></i><h3>Bei Nafuu</h3><p>Punguzo kubwa linakupata ukinunua zaidi ya moja.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="howto" id="matumizi">
+  <div class="container">
+    <div class="section-tag">Matumizi</div>
+    <h2>Jinsi ya Kutumia — Rahisi Sana</h2>
+    <p class="sub">Hatua chache tu na unaangaza maisha yako.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><h3>Weka Jua</h3><p>Weka taa hapo jua kwa muda wa masaa 6-8 ili ichaji kabisa. Paneli ya jua inafanya kazi haraka.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>Bonyeza Kuwasha</h3><p>Bonyeza kitufe kwa muda mrefu (Long Press) kudhibiti mwanga au bonyeza mara moja kubadili mode.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h3>Matumizi ya Powerbank</h3><p>Unapohitaji kucharge simu, tumia kebo ya USB kuunganisha simu yako na taa. <strong>Inatoa umeme kwa haraka.</strong></p></div></div>
+      <div class="step"><div class="step-num">4</div><div><h3>Maliza</h3><p>Rudisha taa kwenye jua kesho asubuhi ili iwe tayari usiku.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="maswali">
+  <div class="container">
+    <div class="section-tag">Maswali</div>
+    <h2>Maswali Yanayoulizwa Mara kwa mara</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q">Inachaji muda gani kwa jua?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Inachaji vizuri ndani ya masaa 6-8 ya mchana. Inaweza kufanya kazi kwa masaa 20 zaidi kwenye mode dhaifu.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je, inaweza kutumika mvua?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Ndiyo. Taa hii ina kiwango cha ulindaji IP66, ina maana ni imara dhidi ya mvua na vumbi.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je, inacharge simu ipi?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Inakuja na port ya ya kawaida ya USB. Inacharge simu zote zinazotumia kebo ya chaji (Android, iPhone, n.k).</div></div></div>
+      <div class="faq-item"><div class="faq-q">Delivery inachukua muda gani?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Delivery ni BURE popote ndani ya Tanzania. Kwa Dar es Salaam, order inafika ndani ya saa 24. Kwa mikoa mingine, siku 1-2 za kazi.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order-section" id="order">
+  <div class="container">
+    <div class="section-tag" style="justify-content:center;">Agiza Sasa</div>
+    <h2 style="text-align:center;">Weka Order Yako Leo</h2>
+    <p class="sub" style="text-align:center;margin:0 auto 1.8rem;">Chagua kiasi — Punguzo zaidi ukinunua wingi!</p>
+    <div class="order-wrap">
+      <form class="order-form" id="orderForm" novalidate>
+        <h3>Fomu ya Agizo</h3>
+        <div class="of-sub">Jaza taarifa zako — tutakutumia WhatsApp.</div>
+
+        <!-- PACKAGE SELECTOR -->
+        <div class="pkg-label">Chagua Kiasi <span class="req">*</span></div>
+        <div class="pkg-grid" id="pkgGrid">
+          <div class="pkg-card active" data-qty="1" onclick="selectPkg(this)">
+            <div class="pkg-qty">1x</div>
+            <div class="pkg-unit">Taa</div>
+            <div class="pkg-price">100,000</div>
+            <div class="pkg-old">TSH</div>
+          </div>
+          <div class="pkg-card popular" data-qty="2" onclick="selectPkg(this)">
+            <div class="pkg-qty">2x</div>
+            <div class="pkg-unit">Taa</div>
+            <div class="pkg-price">160,000</div>
+            <div class="pkg-old">240,000 TSH</div>
+            <div class="pkg-save">UNAOKOA 80,000</div>
+          </div>
+          <div class="pkg-card" data-qty="3" onclick="selectPkg(this)">
+            <div class="pkg-qty">3x</div>
+            <div class="pkg-unit">Taa</div>
+            <div class="pkg-price">220,000</div>
+            <div class="pkg-old">360,000 TSH</div>
+            <div class="pkg-save">UNAOKOA 140,000</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Jina Kamili <span class="req">*</span></label>
+          <input type="text" id="fname" placeholder="Andika jina lako kamili" required>
+          <div class="form-error" id="fnameErr">Tafadhali andika jina lako kamili</div>
+        </div>
+
+        <div class="form-group">
+          <label>Namba ya Simu <span class="req">*</span></label>
+          <input type="tel" id="fphone" placeholder="0769 799 110" required>
+          <div class="form-error" id="fphoneErr">Andika namba sahihi ya simu</div>
+        </div>
+
+        <div class="form-group">
+          <label>Mahali / Mkoa <span class="req">*</span></label>
+          <select id="fregion" required>
+            <option value="">Chagua Mkoa wako...</option>
+            <option>Dar es Salaam</option><option>Dodoma</option><option>Arusha</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option><option>Zanzibar</option><option>Kilimanjaro</option><option>Iringa</option><option>Kagera</option><option>Kigoma</option><option>Lindi</option><option>Mara</option><option>Mtwara</option><option>Pwani</option><option>Rukwa</option><option>Ruvuma</option><option>Shinyanga</option><option>Singida</option><option>Tabora</option><option>Katavi</option><option>Geita</option><option>Njombe</option><option>Simiyu</option><option>Songwe</option>
+          </select>
+          <div class="form-error" id="fregionErr">Tafadhali chagua mkoa wako</div>
+        </div>
+
+        <div class="form-group">
+          <label>Anwani Kamili</label>
+          <input type="text" id="faddress" placeholder="Street, eneo, au maagizo ya kupeleka">
+        </div>
+
+        <div class="order-summary" id="orderSummary">
+          <div class="os-row"><span class="os-label">Kiasi:</span><span class="os-val" id="osQty">1x Taa</span></div>
+          <div class="os-row"><span class="os-label">Bei ya kawaida:</span><span class="os-val" id="osOld">120,000 TSH</span></div>
+          <div class="os-row"><span class="os-label">Unaokoa:</span><span class="os-val os-save" id="osSave">0 TSH</span></div>
+          <div class="os-row"><span class="os-label">Delivery:</span><span class="os-val os-del">BURE</span></div>
+          <div class="os-row total"><span class="os-label">Jumla:</span><span class="os-val" id="osTotal">100,000 TSH</span></div>
+        </div>
+
+        <button type="submit" class="submit-btn wa" id="submitBtn"><i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA</button>
+        <p class="form-disclaimer"><i class="fas fa-lock" style="margin-right:.3rem"></i>Malipo yapo wakati wa kupokea (COD).</p>
+      </form>
+
+      <div class="order-side">
+        <img src="https://z-cdn-media.chatglm.cn/files/e8a34916-c555-4ac3-a807-3161ab145aba.jpg?auth_key=1878148343-6b58df2f1c8f48e28113d9df1ebdf8ec-0-450abcafa040d2d31433b2fc33dfcbfc" alt="Taa inalipa simu">
+        <div class="side-phones">
+          <a href="tel:0769799110" class="side-phone"><i class="fas fa-phone"></i><div><div class="sp-num">0769 799 110</div><div class="sp-label">Piga simu sasa</div></div></a>
+          <a href="https://wa.me/255769799110?text=Nimeona%20ad%20ya%20Taa%20ya%20Solar%20naomba%20kuagiza" class="side-phone" target="_blank"><i class="fab fa-whatsapp"></i><div><div class="sp-num">WhatsApp</div><div class="sp-label">Andika ujumbe moja kwa moja</div></div></a>
+        </div>
+        <div class="side-trust"><i class="fas fa-shield-halved"></i> Malipo baada ya kupokea (COD) — Salama 100%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="f-logo">SOLAR PRO</div>
+    <p>Taa bora ya Jua nchini Tanzania yenye Powerbank na Hifadhi ya Maji. Imehifadhiwa na kuaminika.</p>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTON -->
+<div class="wa-float-wrap" id="waFloatWrap">
+  <div class="wa-float-ring r1"></div>
+  <div class="wa-float-ring r2"></div>
+  <div class="wa-float-ring r3"></div>
+  <a href="https://wa.me/255769799110?text=Nimeona%20ad%20ya%20Taa%20ya%20Solar%20naomba%20kuagiza" class="wa-float" id="waFloatBtn" target="_blank" aria-label="WhatsApp 0769 799 110">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-float-badge">1</span>
+  </a>
+  <div class="wa-float-label" id="waFloatLabel">
+    <span class="label-line1">WhatsApp: 0769 799 110</span>
+    <span class="label-line2">Andika ujumbe moja kwa moja</span>
+  </div>
+</div>
+
+<!-- STICKY CTA BAR -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-price">
+      <span class="scp-old" id="scpOld">120,000 TSH</span>
+      <span class="scp-new" id="scpNew">100,000 TSH</span>
+      <span class="scp-del"><i class="fas fa-truck-fast" style="font-size:.55rem"></i> Delivery BURE</span>
+    </div>
+    <button class="sticky-cta-btn" id="stickyCtaBtn"><span class="pulse-dot"></span><i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== PRICING DATA ===== */
+var PRICES={1:{price:100000,old:120000,save:20000},2:{price:160000,old:240000,save:80000},3:{price:220000,old:360000,save:140000}};
+var qty=1;
+
+/* ===== PACKAGE SELECTOR ===== */
+function selectPkg(el){
+  document.querySelectorAll('.pkg-card').forEach(function(c){c.classList.remove('active');});
+  el.classList.add('active');
+  qty=parseInt(el.dataset.qty);
+  updateSummary();
+}
+
+/* ===== UPDATE SUMMARY ===== */
+function updateSummary(){
+  var p=PRICES[qty];
+  document.getElementById('osQty').textContent=qty+'x Taa';
+  document.getElementById('osOld').textContent=p.old.toLocaleString()+' TSH';
+  document.getElementById('osSave').textContent=p.save.toLocaleString()+' TSH';
+  document.getElementById('osTotal').textContent=p.price.toLocaleString()+' TSH';
+  document.getElementById('osSave').parentElement.style.display=p.save>0?'flex':'none';
+}
+
+/* ===== HERO CANVAS ===== */
+var hcv=document.getElementById('heroCv'),hx=hcv.getContext('2d');
+var HW,HH;
+function hresize(){HW=hcv.width=hcv.parentElement.offsetWidth;HH=hcv.height=hcv.parentElement.offsetHeight;}
+hresize();addEventListener('resize',hresize);
+var hmx=0,hmy=0;
+document.addEventListener('mousemove',function(e){var r=hcv.getBoundingClientRect();hmx=(e.clientX-r.left)/r.width-.5;hmy=(e.clientY-r.top)/r.height-.5;});
+document.addEventListener('touchmove',function(e){if(e.touches[0]){var r=hcv.getBoundingClientRect();hmx=(e.touches[0].clientX-r.left)/r.width-.5;hmy=(e.touches[0].clientY-r.top)/r.height-.5;}},{passive:true});
+function heroAnim(t){
+  hx.fillStyle='#060606';hx.fillRect(0,0,HW,HH);
+  var p=1+Math.sin(t*.001)*.15,r=Math.max(1,Math.min(HW,HH)*.45*p);
+  var g=hx.createRadialGradient(HW/2,HH*.4,0,HW/2,HH*.4,r);
+  g.addColorStop(0,'rgba(212,160,23,0.06)');g.addColorStop(1,'rgba(212,160,23,0)');
+  hx.fillStyle=g;hx.fillRect(0,0,HW,HH);
+  var s=35,sh=s*Math.sqrt(3),co=Math.ceil(HW/(s*1.5))+2,ro=Math.ceil(HH/sh)+2;
+  var px=hmx*10,py=hmy*10;
+  for(var c=-1;c<co;c++)for(var rr=-1;rr<ro;rr++){
+    var x=c*s*1.5+px,y=rr*sh+(c%2?sh/2:0)+py;
+    var d=Math.hypot(x-HW/2,y-HH/2),md=Math.hypot(HW,HH)/2;
+    var a=Math.max(0,.035-d/md*.025)+Math.sin(t*.001+d*.004)*.008;
+    if(a>.001){hx.beginPath();for(var i=0;i<6;i++){var an=Math.PI/3*i-Math.PI/6,hxp=x+s*.9*Math.cos(an),hyp=y+s*.9*Math.sin(an);i?hx.lineTo(hxp,hyp):hx.moveTo(hxp,hyp);}hx.closePath();hx.strokeStyle='rgba(212,160,23,'+Math.max(0,a)+')';hx.lineWidth=.5;hx.stroke();}
+  }
+  for(var i=0;i<30;i++){
+    var px2=(Math.sin(t*.0002+i*2.1)*HW*.4+HW/2+i*43)%HW;
+    var py2=(Math.cos(t*.0003+i*1.8)*HH*.3+HH/2+i*31)%HH;
+    var ps=Math.max(.5,1.2+Math.sin(t*.002+i)*.8);
+    var pa=.1+Math.sin(t*.001+i*4)*.06;
+    hx.beginPath();hx.arc(px2,py2,ps,0,Math.PI*2);hx.fillStyle='rgba(212,160,23,'+Math.max(0,pa)+')';hx.fill();
+  }
+  requestAnimationFrame(heroAnim);
+}
+requestAnimationFrame(heroAnim);
+
+/* ===== FAQ ===== */
+document.querySelectorAll('.faq-q').forEach(function(q){q.onclick=function(){q.parentElement.classList.toggle('open');};});
+
+/* ===== FORM SUBMIT ===== */
+document.getElementById('orderForm').onsubmit=function(e){
+  e.preventDefault();
+  var name=document.getElementById('fname').value.trim();
+  var phone=document.getElementById('fphone').value.trim();
+  var region=document.getElementById('fregion').value;
+  var address=document.getElementById('faddress').value.trim();
+  var valid=true;
+  document.querySelectorAll('.form-error').forEach(function(el){el.classList.remove('show');});
+  document.querySelectorAll('.form-group input, .form-group select').forEach(function(el){el.style.borderColor='rgba(255,255,255,.1)';});
+  if(!name){document.getElementById('fnameErr').classList.add('show');document.getElementById('fname').style.borderColor='var(--urgent)';valid=false;}
+  if(!phone||phone.replace(/\D/g,'').length<9){document.getElementById('fphoneErr').classList.add('show');document.getElementById('fphone').style.borderColor='var(--urgent)';valid=false;}
+  if(!region){document.getElementById('fregionErr').classList.add('show');document.getElementById('fregion').style.borderColor='var(--urgent)';valid=false;}
+  if(!valid){showToast('Tafadhali jaza sehemu zote zinazohitajika','err','fa-triangle-exclamation');return;}
+
+  var p=PRICES[qty];
+  var msg='🔦 *ORDER YA TAA YA SOLAR*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Anwani:* '+address:'')+'\n📦 *Kiasi:* '+qty+'x Taa\n💰 *Bei ya Kawaida:* '+p.old.toLocaleString()+' TSH\n🏷️ *Bei Yako:* '+p.price.toLocaleString()+' TSH'+(p.save>0?'\n✅ *Unaokoa:* '+p.save.toLocaleString()+' TSH':'')+'\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza SolarPro X.';
+  var waUrl='https://wa.me/255769799110?text='+encodeURIComponent(msg);
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Inatuma...';
+  setTimeout(function(){window.open(waUrl,'_blank');btn.disabled=false;btn.innerHTML='<i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA';showToast('WhatsApp imefunguka! Andika ujumbe na tuma.','ok','fa-check-circle');},800);
+};
+
+/* ===== TOAST ===== */
+var tTimer;
+function showToast(m,t,ic){t=t||'inf';ic=ic||'fa-circle-info';clearTimeout(tTimer);var e=document.getElementById('toast');e.innerHTML='<i class="fas '+ic+'"></i>'+m;e.className='toast show '+t;tTimer=setTimeout(function(){e.className='toast';},3500);}
+
+/* ===== STICKY CTA BAR ===== */
+var stickyCta=document.getElementById('stickyCta');
+var stickyCtaBtn=document.getElementById('stickyCtaBtn');
+var orderFormEl=document.getElementById('orderForm');
+var stickyCtaVisible=false;
+
+function updateStickyPrice(){
+  var p=PRICES[qty];
+  document.getElementById('scpOld').textContent=p.old.toLocaleString()+' TSH';
+  document.getElementById('scpNew').textContent=p.price.toLocaleString()+' TSH';
+}
+updateStickyPrice();
+
+function checkStickyVisibility(){
+  var heroBottom=document.getElementById('home').offsetHeight;
+  var orderTop=orderFormEl.getBoundingClientRect().top;
+  var orderVisible=orderTop<window.innerHeight;
+  var scrolledPastHero=window.scrollY>heroBottom;
+  if(scrolledPastHero && !orderVisible){
+    if(!stickyCtaVisible){stickyCta.classList.add('visible');stickyCtaVisible=true;}
+  }else{
+    if(stickyCtaVisible){stickyCta.classList.remove('visible');stickyCtaVisible=false;}
+  }
+}
+window.addEventListener('scroll',checkStickyVisibility,{passive:true});
+window.addEventListener('resize',checkStickyVisibility,{passive:true});
+
+stickyCtaBtn.addEventListener('click',function(){
+  orderFormEl.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(function(){document.getElementById('fname').focus();},600);
+});
+
+var origSelectPkg=selectPkg;
+selectPkg=function(el){
+  document.querySelectorAll('.pkg-card').forEach(function(c){c.classList.remove('active');});
+  el.classList.add('active');
+  qty=parseInt(el.dataset.qty);
+  updateSummary();
+  updateStickyPrice();
+};
+
+/* ===== SMOOTH SCROLL ===== */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){var target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
+</script>
+</body>
+</html>
