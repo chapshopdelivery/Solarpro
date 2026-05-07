@@ -29,11 +29,14 @@ nav .nav-wa i{font-size:.75rem;}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;overflow:hidden;padding:5rem 0 3rem;}
-/* GIF Styles - Same as video but for Image */
+/* Video Styles */
 .hero-video{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;opacity:0.6;}
 
+/* Canvas Animation (Particles) - Z-INDEX 2 (On top of Video) */
 .hero canvas{position:absolute;inset:0;z-index:2;pointer-events:none;}
-.hero .vig{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(6,6,6,.9) 100%);}
+
+/* Vignette overlay - Z-INDEX 3 (Darkens Video for readability) */
+.hero .vig{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(6,6,6,.85) 100%);}
 .hero .content{position:relative;z-index:10;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
 .hero .text{flex:1;min-width:280px;}
 .hero .badge{display:inline-flex;align-items:center;gap:.3rem;background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.3);border-radius:30px;padding:.25rem .7rem;font-size:.68rem;font-weight:600;color:var(--green);margin-bottom:1rem;}
@@ -169,7 +172,6 @@ section p.sub{font-size:clamp(.8rem,1.3vw,.95rem);color:rgba(255,248,231,.45);li
 .pkg-card .pkg-price{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gl);margin-top:.3rem;}
 .pkg-card .pkg-old{font-size:.65rem;color:rgba(255,248,231,.25);text-decoration:line-through;margin-top:.1rem;}
 .pkg-card .pkg-save{display:inline-block;background:var(--green);color:#fff;font-size:.55rem;font-weight:700;padding:.1rem .4rem;border-radius:4px;margin-top:.3rem;}
-/* Popular badge */
 .pkg-card.popular::before{content:'OFFER YA KUPIGA';position:absolute;top:0;left:0;right:0;background:linear-gradient(90deg,var(--gold),var(--gd));color:#0A0A0A;font-size:.5rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.15rem 0;text-align:center;}
 
 .order-summary{background:rgba(212,160,23,.06);border:1px solid rgba(212,160,23,.12);border-radius:12px;padding:.9rem 1rem;margin-bottom:1.2rem;}
@@ -283,16 +285,17 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
     <div class="logo">SOLAR<span>PRO</span></div>
     <div class="nav-cta">
       <div class="nav-price">100,000 TSH <s>120,000</s></div>
-      <a href="https://wa.me/255769799110?text=Nimeona%20ad%20ya%20Taa%20ya%20Solar%20naomba%20kuagiza" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> <span>Tupigie simu</span></a>
+      <a href="https://wa.me/255769799110?text=Nimeona%20ad%20ya%20Taa%20ya%20Solar%20naomba%20kuagiza" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> <span>Piga Simu</span></a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <!-- GIF AUTOPLAY -->
-  <!-- BADILI SRC="..." NA KUWEKA LINK YA GIF YAKO HAPA -->
-  <img src="https://i.giphy.com/media/xT5LMHxhOfscxPfIfm/giphy.gif" class="hero-video" alt="Camping Fire Background">
+  <!-- VIDEO AUTOPLAY -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-camping-lantern-lighting-up-a-tent-at-night-4823-large.mp4" type="video/mp4">
+  </video>
   
   <canvas id="heroCv"></canvas>
   <div class="vig"></div>
@@ -300,7 +303,7 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
     <div class="text">
       <div class="badge"><i class="fas fa-sun"></i> Nishati Bure ya Jua — Imara na ya Kudumu</div>
       <h1><span class="g">SolarPro X</span><br>Taa ya Jua yenye Powerbank</h1>
-      <p class="desc">Taa ya kipekee ya <strong>2500W equivalent</strong> yenye LED 528. Inachaji kupitia jua, ni water proof, haiaribiki hata ikinyeshwewa na Mvua, na inatunza moto mpaka masaa 10 hadi 12, inacharge simu zako mpaka zinajaa kabisa. Ni Suluhisho kamili la shida za umeme mara moja.</p>
+      <p class="desc">Taa ya kipekee ya <strong>2500W equivalent</strong> yenye LED 528. Inachaji jua, ina hifadhi ya maji IP66, na inaweza kulipa simu yako. Suluhisha shida za umeme mara moja.</p>
       <div class="price-row">
         <div class="price-box">
           <div class="old">Bei ya Kawaida: 120,000 TSH</div>
@@ -330,13 +333,13 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
 <section class="problem" id="maumivu">
   <div class="container">
     <div class="section-tag">Tatua</div>
-    <h2>Unasumbuliwa na Giza na Umeme Ukatika marakwamara?</h2>
-    <p class="sub">Usikae gizani. Taa ya SolarPro X ni suluhisho lako kamili — inatunza umeme kwa muda mrefu zaidi ya TANESCO na inakuwepo wakati wote.</p>
+    <h2>Unasumbuliwa na Giza na Umeme Ukatika?</h2>
+    <p class="sub">Usikae gizani. Taa ya SolarPro X ni suluhisho lako kamili — inafanya kazi pasi TANESCO na inakuwepo wakati wote.</p>
     <div class="pain-grid">
-      <div class="pain-card"><i class="fas fa-bolt"></i><h3>shida ya umeme kwisha</h3><p>Inatunza Moto kwa msaa mengi zaidi mwanga wake ni mkali zaidi.</p></div>
-      <div class="pain-card"><i class="fas fa-money-bill-wave"></i><h3>Taa zako zinakula Umeme</h3><p> Unit za TANESCO zinaongezeka? Pata nishati bure.</p></div>
-      <div class="pain-card"><i class="fas fa-battery-empty"></i><h3>Simu yako inakata charge</h3><p>Chaji inaisha wakati wa dharura? Taa hii ni Powerbank pia.</p></div>
-      <div class="pain-card"><i class="fas fa-cloud-showers-heavy"></i><h3>Mvua na Uvamizi</h3><p>Taa nyingi hufa wakati wa mvua? Hii ni IP66 Waterproof.</p></div>
+      <div class="pain-card"><i class="fas fa-bolt"></i><h3>Umeme Ukosefu</h3><p>Vitu vinafanya kazi giza? Taa hii haitoshi.</p></div>
+      <div class="pain-card"><i class="fas fa-money-bill-wave"></i><h3>Vyombo vya Umeme</h3><p>Kodi za TANESCO zinaongezeka? Pata nishati bure.</p></div>
+      <div class="pain-card"><i class="fas fa-battery-empty"></i><h3>Simu Kushindwa</h3><p>Chaji inaisha wakati wa dharura? Taa hii ni Powerbank pia.</p></div>
+      <div class="pain-card"><i class="fas fa-cloud-showers-heavy"></i><h3>Mvua na Uvamizi</h3><p>Taa nyingi huoa wakati wa mvua? Hii ni IP66 Waterproof.</p></div>
     </div>
     <div class="problem-img-wrap">
       <img src="https://z-cdn-media.chatglm.cn/files/e8a34916-c555-4ac3-a807-3161ab145aba.jpg?auth_key=1878148343-6b58df2f1c8f48e28113d9df1ebdf8ec-0-450abcafa040d2d31433b2fc33dfcbfc" alt="Mtu akishika taa ya mkono">
@@ -363,9 +366,9 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
         </div>
         <p class="sub" style="margin-bottom:.8rem;">Taa yenye teknolojia ya hali ya juu. Inakuja na paneli ya jua inayoweza kuongezeka, betri kubwa, na muundo uliodhibitiwa dhidi ya maji na vumbi.</p>
         <div class="specs">
-          <div class="spec"><i class="fas fa-check"></i> Water Proof IP66</div>
+          <div class="spec"><i class="fas fa-check"></i> Hifadhi ya Maji IP66</div>
           <div class="spec"><i class="fas fa-check"></i> Mwangaza wa Sqm 500</div>
-          <div class="spec"><i class="fas fa-check"></i> Inacharge Simu (5V/2A)</div>
+          <div class="spec"><i class="fas fa-check"></i> Inalipa Simu (5V/2A)</div>
           <div class="spec"><i class="fas fa-check"></i> Sumaku 2 nguzu</div>
           <div class="spec"><i class="fas fa-check"></i> Stand inayozunguka 180°</div>
           <div class="spec"><i class="fas fa-check"></i> Mode 5 za Mwanga</div>
@@ -391,8 +394,8 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
 <section class="detail-section" style="background:var(--bg);">
   <div class="detail-text-box">
     <h3><i class="fas fa-mobile-alt" style="margin-right:10px;"></i> POWER OUTPUT</h3>
-    <h2>Inaweza Kucharge Simu Yako</h2>
-    <p>Umeishia chaji? Taa hii ina uwezo wa ku-output umeme na kucharge simu yako wakati wa dharura. Unaweza kuwasha simu yako na kutumia taa hii kama charger.</p>
+    <h2>Inaweza Kulipa Simu Yako</h2>
+    <p>Umeishia chaji? Taa hii ina uwezo wa ku-output umeme na kulipa simu yako wakati wa dharura. Unaweza kuwasha simu yako na kutumia taa hii kama charger.</p>
   </div>
   <div class="detail-img-box">
     <img src="https://z-cdn-media.chatglm.cn/files/f74f87e8-1572-4ade-86d1-0e650a739831.png?auth_key=1878152911-a196e7e1560f4865b5c4bed6e40d65c6-0-d338bdfefa2d37360c1e0a3b63baf3fb" alt="Charging Phone Power Output">
@@ -406,11 +409,11 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
     <h2>Kwa Nini SolarPro X?</h2>
     <p class="sub">Sio taa ya kawaida — hii ni kifaa cha kuokoa maisha na pesa.</p>
     <div class="benefits-grid">
-      <div class="ben-card"><div class="num">01</div><i class="fas fa-sun"></i><h3>Nishati ya Jua</h3><p>Weka nje mchana, utumie usiku. Hakuna gharama za umeme.</p></div>
-      <div class="ben-card"><div class="num">02</div><i class="fas fa-mobile-alt"></i><h3>Inaokoa simu</h3><p>Ina USB port. Unaweza kucharge simu yako wakati wa dharura.</p></div>
+      <div class="ben-card"><div class="num">01</div><i class="fas fa-sun"></i><h3>Nishati ya Jua</h3><p>Paka nje mchana, utumie usiku. Hakuna gharama za umeme.</p></div>
+      <div class="ben-card"><div class="num">02</div><i class="fas fa-mobile-alt"></i><h3>Inalipa Simu</h3><p>Ina USB port. Unaweza kulipa simu yako wakati wa dharura.</p></div>
       <div class="ben-card"><div class="num">03</div><i class="fas fa-shield-alt"></i><h3>Imara na Salama</h3><p>Imetengenezwa kwa plastiki ngumu yenye kinga dhidi ya ajali.</p></div>
-      <div class="ben-card"><div class="num">04</div><i class="fas fa-tint"></i><h3>Haidhuriki kwenye Maji</h3><p>IP66 inamaanisha haingii maji. Salama kwa matumizi ya nje.</p></div>
-      <div class="ben-card"><div class="num">05</div><i class="fas fa-bolt"></i><h3>Mwanga Mkali</h3><p>LED 528 zinatoa mwanga mweupe mkali unaofika mbali.</p></div>
+      <div class="ben-card"><div class="num">04</div><i class="fas fa-tint"></i><h3>Tenyang'anya Maji</h3><p>IP66 inamaanisha huingii maji. Salama kwa matumizi ya nje.</p></div>
+      <div class="ben-card"><div class="num">05</div><i class="fas fa-bolt"></i><h3>Mwanganga Mkali</h3><p>LED 528 zinatoa mwanga mweupe mkali unaofika mbali.</p></div>
       <div class="ben-card"><div class="num">06</div><i class="fas fa-shipping-fast"></i><h3>Bei Nafuu</h3><p>Punguzo kubwa linakupata ukinunua zaidi ya moja.</p></div>
     </div>
   </div>
@@ -424,8 +427,8 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
     <p class="sub">Hatua chache tu na unaangaza maisha yako.</p>
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div><h3>Weka Jua</h3><p>Weka taa hapo jua kwa muda wa masaa 6-8 ili ichaji kabisa. Paneli ya jua inafanya kazi haraka.</p></div></div>
-      <div class="step"><div class="step-num">2</div><div><h3>Bonyeza Kuwasha</h3><p>Bonyeza kitufe kwa muda mrefu (Long Press) kudhibiti mwanga au bonyeza mara moja kubadili mode.</p></div></div>
-      <div class="step"><div class="step-num">3</div><div><h3>Matumizi ya Powerbank</h3><p>Unapohitaji kucharge simu, tumia kebo ya USB kuunganisha simu yako na taa. <strong>Inatoa umeme kwa haraka.</strong></p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>Bonyeza Kuwasha</h3><p>Bonyeza kitufe cha muda mrefu (Long Press) kudhibiti mwanga au bonyeza mara moja kubadili mode.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h3>Matumizi ya Powerbank</h3><p>Unapohitaji kulipa simu, tumia kabeli ya USB kuunganisha simu yako na taa. <strong>Inatoa umeme kwa haraka.</strong></p></div></div>
       <div class="step"><div class="step-num">4</div><div><h3>Maliza</h3><p>Rudisha taa kwenye jua kesho asubuhi ili iwe tayari usiku.</p></div></div>
     </div>
   </div>
@@ -439,8 +442,8 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q">Inachaji muda gani kwa jua?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Inachaji vizuri ndani ya masaa 6-8 ya mchana. Inaweza kufanya kazi kwa masaa 20 zaidi kwenye mode dhaifu.</div></div></div>
       <div class="faq-item"><div class="faq-q">Je, inaweza kutumika mvua?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Ndiyo. Taa hii ina kiwango cha ulindaji IP66, ina maana ni imara dhidi ya mvua na vumbi.</div></div></div>
-      <div class="faq-item"><div class="faq-q">Je, inacharge simu ipi?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Inakuja na port ya ya kawaida ya USB. Inacharge simu zote zinazotumia kebo ya chaji (Android, iPhone, n.k).</div></div></div>
-      <div class="faq-item"><div class="faq-q">Delivery inachukua muda gani?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Delivery ni BURE popote ndani ya Tanzania. Kwa Dar es Salaam, order inafika ndani ya saa 24. Kwa mikoa mingine, siku 1-2 za kazi.</div></div></div>
+      <div class="faq-item"><div class="faq-q">Je, inalipa simu ipi?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Inakuja na port ya ya kawaida ya USB. Inalipa simu zote zinazotumia kabeli ya chaji (Android, iPhone, n.k).</div></div></div>
+      <div class="faq-item"><div class="faq-q">Delivery inachukua muda gani?<i class="fas fa-chevron-down"></i></div><div class="faq-a"><div class="faq-a-inner">Delivery ni BURE popote ndani ya Tanzania. Kwa Dar es Salaam, order inafika ndani ya saa 24. Kwa mikoa mingine, saa 1-3 za kazi.</div></div>
     </div>
   </div>
 </section>
@@ -497,7 +500,7 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
           <label>Mahali / Mkoa <span class="req">*</span></label>
           <select id="fregion" required>
             <option value="">Chagua Mkoa wako...</option>
-            <option>Dar es Salaam</option><option>Dodoma</option><option>Arusha</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option><option>Zanzibar</option><option>Kilimanjaro</option><option>Iringa</option><option>Kagera</option><option>Kigoma</option><option>Lindi</option><option>Mara</option><option>Mtwara</option><option>Pwani</option><option>Rukwa</option><option>Ruvuma</option><option>Shinyanga</option><option>Singida</option><option>Tabora</option><option>Katavi</option><option>Geita</option><option>Njombe</option><option>Simiyu</option><option>Songwe</option>
+            <option>Dar es Salaam</option><option>Dodoma</option><option>Arusha</option><option>Mwanza</option><option>Mbeya</option><option>Morogoro</option><option>Tanga</option><option>Zanzibar</option><option>Kilimanjaro</option><option>Iringa</option><option>Kagera</option><option>Kigoma</option><option>Lindi</option><option>Mara</option><option>Mtwara</option><option>Pwani</option><option>Rukwa</option><option>Ruvuma</option><option>Shinyanga</option><option>Singida</option><option>Singida</option><option>Tabora</option><option>Katavi</option><option>Geita</option><option>Njombe</option><option>Simiyu</option><option>Songwe</option>
           </select>
           <div class="form-error" id="fregionErr">Tafadhali chagua mkoa wako</div>
         </div>
@@ -516,7 +519,7 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
         </div>
 
         <button type="submit" class="submit-btn wa" id="submitBtn"><i class="fas fa-paper-plane"></i> TUMA ORDER YAKO SASA</button>
-        <p class="form-disclaimer"><i class="fas fa-lock" style="margin-right:.3rem"></i>Malipo yapo wakati wa kupokea (COD).</p>
+        <p class="form-disclaimer"><i class="fas fa-lock" style="margin-right:.3rem"></i>Malipo yapo wakati wa kupeekea (COD).</p>
       </form>
 
       <div class="order-side">
@@ -569,6 +572,24 @@ footer p{font-size:.75rem;color:rgba(255,248,231,.25);line-height:1.6;max-width:
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
+<!-- META PIXEL BASE CODE (User Provided) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2208092976660983');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2208092976660983&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <script>
 /* ===== PRICING DATA ===== */
 var PRICES={1:{price:100000,old:120000,save:20000},2:{price:160000,old:240000,save:80000},3:{price:220000,old:360000,save:140000}};
@@ -612,7 +633,7 @@ function heroAnim(t){
     var x=c*s*1.5+px,y=rr*sh+(c%2?sh/2:0)+py;
     var d=Math.hypot(x-HW/2,y-HH/2),md=Math.hypot(HW,HH)/2;
     var a=Math.max(0,.035-d/md*.025)+Math.sin(t*.001+d*.004)*.008;
-    if(a>.001){hx.beginPath();for(var i=0;i<6;i++){var an=Math.PI/3*i-Math.PI/6,hxp=x+s*.9*Math.cos(an),hyp=y+s*.9*Math.sin(an);i?hx.lineTo(hxp,hyp):hx.moveTo(hxp,hyp);}hx.closePath();hx.strokeStyle='rgba(212,160,23,'+Math.max(0,a)+')';hx.lineWidth=.5;hx.stroke();}
+    if(a>.001){hx.beginPath();for(var i=0;i<6;i++){var an=Math.PI/3*i-Math.PI/6,hxp=x+s*.9*Math.cos(an),hyp=y+s*.9*Math.sin(an);i?hx.lineTo(hxp,hyp):hx.moveTo(hxp,hyp);hx.closePath();hx.strokeStyle='rgba(212,160,23,'+Math.max(0,a)+')';hx.lineWidth=.5;hx.stroke();}
   }
   for(var i=0;i<30;i++){
     var px2=(Math.sin(t*.0002+i*2.1)*HW*.4+HW/2+i*43)%HW;
@@ -628,7 +649,7 @@ requestAnimationFrame(heroAnim);
 /* ===== FAQ ===== */
 document.querySelectorAll('.faq-q').forEach(function(q){q.onclick=function(){q.parentElement.classList.toggle('open');};});
 
-/* ===== FORM SUBMIT ===== */
+/* ===== ORDER FORM ===== */
 document.getElementById('orderForm').onsubmit=function(e){
   e.preventDefault();
   var name=document.getElementById('fname').value.trim();
@@ -644,7 +665,7 @@ document.getElementById('orderForm').onsubmit=function(e){
   if(!valid){showToast('Tafadhali jaza sehemu zote zinazohitajika','err','fa-triangle-exclamation');return;}
 
   var p=PRICES[qty];
-  var msg='🔦 *ORDER YA TAA YA SOLAR*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Anwani:* '+address:'')+'\n📦 *Kiasi:* '+qty+'x Taa\n💰 *Bei ya Kawaida:* '+p.old.toLocaleString()+' TSH\n🏷️ *Bei Yako:* '+p.price.toLocaleString()+' TSH'+(p.save>0?'\n✅ *Unaokoa:* '+p.save.toLocaleString()+' TSH':'')+'\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza SolarPro X.';
+  var msg='🔦 *ORDER YA TAA YA SOLAR*\n\n👤 *Jina:* '+name+'\n📱 *Simu:* '+phone+'\n📍 *Mkoa:* '+region+(address?'\n🏠 *Kiasi:* '+qty+'x Taa\n💰 *Bei ya Kawaida:* '+p.old.toLocaleString()+' TSH\n🏷️ *Bei Yako:* '+p.price.toLocaleString()+' TSH'+(p.save>0?'\n✅ *Unaokoa:* '+p.save.toLocaleString()+' TSH':'')+'\n🚚 *Delivery:* BURE\n\n---\nNdio, nataka kuagiza SolarPro X.';
   var waUrl='https://wa.me/255769799110?text='+encodeURIComponent(msg);
   var btn=document.getElementById('submitBtn');
   btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Inatuma...';
@@ -653,7 +674,7 @@ document.getElementById('orderForm').onsubmit=function(e){
 
 /* ===== TOAST ===== */
 var tTimer;
-function showToast(m,t,ic){t=t||'inf';ic=ic||'fa-circle-info';clearTimeout(tTimer);var e=document.getElementById('toast');e.innerHTML='<i class="fas '+ic+'"></i>'+m;e.className='toast show '+t;tTimer=setTimeout(function(){e.className='toast';},3500);}
+function showToast(m,t,ic){t=t||'inf';ic=ic||'fa-circle-info';clearTimeout(tTimer);var e=document.getElementById('toast');e.innerHTML='<i class="fas '+ic+'></i>'+m;e.className='toast show '+t;tTimer=setTimeout(function(){e.className='toast';},3500);}
 
 /* ===== STICKY CTA BAR ===== */
 var stickyCta=document.getElementById('stickyCta');
@@ -699,6 +720,7 @@ selectPkg=function(el){
 /* ===== SMOOTH SCROLL ===== */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){var target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}});
+});
 });
 </script>
 </body>
